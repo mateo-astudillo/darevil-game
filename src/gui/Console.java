@@ -2,7 +2,7 @@ package gui;
 
 import java.util.Scanner;
 
-public class Console {
+abstract public class Console {
 	private static Scanner input = new Scanner(System.in);
 
 	public static void print(Object m) {

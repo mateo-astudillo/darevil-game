@@ -1,8 +1,8 @@
 package logic;
 
 import java.util.ArrayList;
-import logic.Position;
-import gui.Console;
+//import logic.Position;
+//import gui.Console;
 
 public class Map {
 	private int rows;
@@ -11,37 +11,37 @@ public class Map {
 	private ArrayList<Position> enemies;
 
 	public Map(int r, int c) {
-		rows = r;
-		cols = c;
-		enemies = new ArrayList<Position>();
+		this.rows = r;
+		this.cols = c;
+		this.enemies = new ArrayList<Position>();
 		createMap();
 	}
 
 	private void createMap() {
-		map = new String[rows][cols];
-		for (int r = 0; r < rows; r++) {
-			for (int c = 0; c < cols; c++)
+		map = new String[this.rows][this.cols];
+		for (int r = 0; r < this.rows; r++) {
+			for (int c = 0; c < this.cols; c++)
 				map[r][c] = " ";
 		}
 	}
 
 	public void showMap() {
 		System.out.print("     ");
-		for (int c = 1; c <= cols; c++)
+		for (int c = 1; c <= this.cols; c++)
 			System.out.print("|" + c + "| ");
 		System.out.println();
-		for (int r = 0; r < rows; r++) {
+		for (int r = 0; r < this.rows; r++) {
 			System.out.print(" |" + (r + 1) + "|");
-			for (int c = 0; c < cols; c++)
+			for (int c = 0; c < this.cols; c++)
 				System.out.print(" |" + map[r][c] + "|");
 			System.out.println();
 		}
 	}
 
 	private boolean checkEnemy(Position e) {
-		if (enemies == null)
+		if (this.enemies == null)
 			return false;
-		for (Position enemy : enemies) {
+		for (Position enemy : this.enemies) {
 			if ( enemy.equals(e) )
 				return true;
 		}
@@ -52,12 +52,12 @@ public class Map {
 		if ( checkEnemy(e) )
 			return false;
 		map[e.getRow()][e.getCol()] = "X";
-		enemies.add(e);
+		this.enemies.add(e);
 		return true;
 	}
 
 	public void showEnemies() {
-		for (Position e : enemies)
+		for (Position e : this.enemies)
 			System.out.println(" r: " + e.getRow() + " c: " + e.getCol());
 	}
 }
