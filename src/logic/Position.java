@@ -9,27 +9,27 @@ public class Position {
 	}
 
 	public Position(int r, int c) {
-		row = r;
-		col = c;
+		this.row = r;
+		this.col = c;
 	}
 	
 	public boolean equals(Position other) {
-		if (row == other.getRow() && col == other.getCol())
+		if (this.row == other.getRow() && this.col == other.getCol())
 			return true;
 		return false;
 	}
 	
 	public int getRow() {
-		return row;
+		return this.row;
 	}
 
 	public int getCol() {
-		return col;
+		return this.col;
 	}
 	
 	public boolean setRow(int r) {
 		try {
-			row = r;
+			this.row = r;
 			return true;
 		}
 		catch (NumberFormatException ex) {
@@ -39,7 +39,7 @@ public class Position {
 
 	public boolean setCol(int c) {
 		try {
-			col = c;
+			this.col = c;
 			return true;
 		}
 		catch (NumberFormatException ex) {
